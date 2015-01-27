@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/apps":{"guestpath":"/home/vagrant/apps","hostpath":"/Users/russw/Projects/dev-environment/apps","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/russw/Projects/dev-environment","disabled":false}}}
