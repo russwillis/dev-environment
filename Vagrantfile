@@ -22,4 +22,8 @@ Vagrant.configure(2) do |config|
   # Flask Port
   config.vm.network :forwarded_port, host: 5000, guest: 5000
 
+  # PostgreSQL Server port forwarding
+  config.vm.network :forwarded_port, host: 5432, guest: 5432
+  config.vm.network :forwarded_port, host: 15432, guest: 15432
+
 end
