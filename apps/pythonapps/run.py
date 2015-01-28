@@ -112,7 +112,7 @@ def read_from_db():
     try:
         # Preparing the select query - in this case it's just a simple select, with no joins, no filters.
         # You can find more information about selecting here: http://docs.sqlalchemy.org/en/rel_0_9/core/tutorial.html#selecting
-        query = select([property_table.c.title_no, property_table.c.uprn])
+        query = select([property_table.c.title_no, property_table.c.uprn]).where(property_table.c.title_no == 'DT100')
 
         # A function that converts a single result row into a string - we'll use it to convert the whole query result into a string
         def result_row_to_string(row):
@@ -122,6 +122,8 @@ def read_from_db():
 
         # Preparing results - all the retrieved rows converted to strings and joined using new line character
         result_string = '\n'.join(map(result_row_to_string, query_result.fetchall()))
+        if not result_string:
+            result_string = "Details not found"
         return result_string
     finally:
         query_result.close()
